@@ -1,24 +1,18 @@
 name: build
 on: [workflow_dispatch, push]
-
 jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v6
-      - name: unpack ArmorSense source
-        run: unzip -q ArmorSense-1.0.9-mc26.1-source.zip -d armorsense-build
-      - name: setup jdk
-        uses: actions/setup-java@v5
+      - uses: actions/checkout@v6
+      - run: unzip -q ArmorSense-1.0.9-mc26.1-source-v2.zip -d armorsense-build
+      - uses: actions/setup-java@v5
         with:
           java-version: '25'
           distribution: 'microsoft'
-      - name: build
-        working-directory: armorsense-build/ArmorSense-1.0.9-mc26.1
+      - working-directory: armorsense-build/ArmorSense-1.0.9-mc26.1
         run: chmod +x ./gradlew && ./gradlew build --stacktrace
-      - name: capture build artifacts
-        if: always()
+      - if: always()
         uses: actions/upload-artifact@v7
         with:
           name: ArmorSense-1.0.9-mc26.1
