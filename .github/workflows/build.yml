@@ -7,19 +7,19 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v6
-      - name: unpack Capybara source
-        run: unzip -q capybara-source-v2.zip -d capybara-build
+      - name: unpack ArmorSense source
+        run: unzip -q ArmorSense-1.0.9-source.zip -d armorsense-build
       - name: setup jdk
         uses: actions/setup-java@v5
         with:
           java-version: '25'
           distribution: 'microsoft'
       - name: build
-        working-directory: capybara-build
+        working-directory: armorsense-build/ArmorSense-1.0.9
         run: chmod +x ./gradlew && ./gradlew build --stacktrace
       - name: capture build artifacts
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: Capybara-build
-          path: capybara-build/build/libs/
+          name: ArmorSense-1.0.9
+          path: armorsense-build/ArmorSense-1.0.9/build/libs/
