@@ -8,7 +8,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v6
       - name: unpack Capybara source
-        run: unzip -q capybara-source-v1.zip -d capybara-build
+        run: unzip -q capybara-source-v2.zip -d capybara-build
       - name: setup jdk
         uses: actions/setup-java@v5
         with:
