@@ -5,15 +5,15 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
-      - run: unzip -q ArmorSense-1.0.9-mc26.1-source-v2.zip -d armorsense-build
+      - run: unzip -q DonutBalanceDisplay-source.zip -d donut-build
       - uses: actions/setup-java@v5
         with:
           java-version: '25'
           distribution: 'microsoft'
-      - working-directory: armorsense-build/ArmorSense-1.0.9-mc26.1
+      - working-directory: donut-build/DonutBalanceDisplay
         run: chmod +x ./gradlew && ./gradlew build --stacktrace
       - if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: ArmorSense-1.0.9-mc26.1
-          path: armorsense-build/ArmorSense-1.0.9-mc26.1/build/libs/
+          name: DonutBalanceDisplay-1.0.0-mc26.2
+          path: donut-build/DonutBalanceDisplay/build/libs/
