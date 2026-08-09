@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
-      - run: unzip -q DonutBalanceDisplay-1.0.3-source.zip -d donut-build
+      - run: unzip -q DonutBalanceDisplay-1.0.4-source.zip -d donut-build
       - uses: actions/setup-java@v5
         with:
           java-version: '25'
@@ -16,5 +16,5 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: DonutBalanceDisplay-1.0.3-mc26.2
+          name: DonutBalanceDisplay-1.0.4-mc26.2
           path: donut-build/DonutBalanceDisplay/build/libs/
