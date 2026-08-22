@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
-      - run: unzip -q AutoTotem-1.0.0-source.zip -d auto-totem-build
+      - run: unzip -q AutoTotem-1.0.0-source-v2.zip -d auto-totem-build
       - uses: actions/setup-java@v5
         with:
           java-version: '25'
